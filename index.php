@@ -20,9 +20,11 @@
 
 const THREAD_FILE = 'thread.txt';
 
-function readData() {
+function readData() 
+{
     // ファイルが存在しなければデフォルト空文字のファイルを作成する
-    if (! file_exists(THREAD_FILE)) {
+    if (! file_exists(THREAD_FILE)) 
+    {
         $fp = fopen(THREAD_FILE, 'w');
         fwrite($fp, '');
         fclose($fp);
@@ -32,11 +34,13 @@ function readData() {
     echo $thread_text;
 }
 
-function writeData() {
+function writeData() 
+{
     $personal_name = $_POST['personal_name'];
     $contents = $_POST['contents'];
     $contents = nl2br($contents);
 
+    //ｔ
     $data = "<hr>\n";
     $data = $data."<p>投稿日時:".date("Y年n月d日 H時i分s秒")."</p>\n";
     $data = $data."<p>投稿者:".$personal_name."</p>\n";
@@ -45,14 +49,18 @@ function writeData() {
 
     $fp = fopen(THREAD_FILE, 'a');
 
-    if ($fp){
-        if (flock($fp, LOCK_EX)){
-            if (fwrite($fp,  $data) === FALSE){
+    if ($fp)
+    {
+        if (flock($fp, LOCK_EX))
+        {
+            if (fwrite($fp,  $data) === FALSE)
+            {
                 print('ファイル書き込みに失敗しました');
             }
 
             flock($fp, LOCK_UN);
-        }else{
+        }else
+        {
             print('ファイルロックに失敗しました');
         }
     }
@@ -66,7 +74,8 @@ function writeData() {
     //it'smemario
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") 
+{
     writeData();
 }
 
