@@ -61,6 +61,7 @@ function writeData() {
     $redirect_url = $_SERVER['HTTP_REFERER'];
     header("Location: $redirect_url");
     exit;
+    //it'smemario
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
