@@ -13,7 +13,7 @@
     <input type="submit" name="btn" value="投稿する">
 </form>
 
-
+<!--ba-ka-->
 <form method = "POST" action = delete.php>
     <buttom type = "submit">投稿を削除する</buttom>
 </form>
