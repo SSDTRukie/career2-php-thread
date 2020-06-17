@@ -14,9 +14,9 @@
 </form>
 
 <!--ba-ka-->
-<form method = "POST" action = "<?php print($_SERVER['PHP_SELF']) ?>">
+<form method="POST" action="<?php print($_SERVER['PHP_SELF']) ?>">
     <input type="hidden" name="method" value="DELETE">
-    <buttom type = "submit">投稿を削除する</buttom>
+    <button type="submit">投稿を全削除する</button>
 </form>
 
 <h2>スレッド</h2>
