@@ -15,7 +15,8 @@
 
 <!--ba-ka-->
 <form method = "POST" action = delete.php>
-    <buttom type = "submit">投稿を削除する</buttom>
+    <input type="submit" name="btn" value="投稿を削除する">
+    <!--<buttom type = "submit">投稿を削除する</buttom>-->
 </form>
 
 <h2>スレッド</h2>
