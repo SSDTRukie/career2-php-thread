@@ -13,9 +13,8 @@
     <input type="submit" name="btn" value="投稿する">
 </form>
 
-<!--ba-ka-->
-<form method="POST" action="<?php print($_SERVER['PHP_SELF']) ?>">
-    <input type="hidden" name="method" value="DELETE">
+<!--削除できない-->
+<form method="post" action="delete.php">
     <button type="submit">投稿を全削除する</button>
 </form>
 
