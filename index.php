@@ -14,9 +14,16 @@
 </form>
 
 <!--削除できない-->
-<form method="post" action="delete.php">
+<form method="POST" action="delete.php">
     <button type="submit">投稿を全削除する</button>
 </form>
+
+<!--
+<from method="POST" action="index.php">
+    <input type="hidden" name="method" value="DELETE">
+    <buttom type="submit">投稿を削除する</buttom>
+</from>
+-->
 
 <h2>スレッド</h2>
 
