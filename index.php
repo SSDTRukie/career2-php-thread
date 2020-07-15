@@ -4,6 +4,9 @@
  * 職業実践2 - 掲示板アプリ
  */
 
+require_once './thread.php';
+$thread = new Thread("掲示板App");
+
 session_start();
 
 function setToken()
@@ -55,39 +58,36 @@ if (empty($_SESSION['token'])) {
             <input class="btn btn-primary"  type="submit" name="btn" value="投稿する">
         </form>
 
+        <hr>
+
+        <h2 class="text-muted py-3">スレッド</h2>
 
         <form method="POST" action="<?php print($_SERVER['PHP_SELF']) ?>">
             <input type="hidden" name="method" value="DELETE">
             <button class="btn btn-danger" type="submit">投稿を全削除する</button>
         </form>
-
-        <h2 class="text-muted py-3">スレッド</h2>
 <?php
 
-const THREAD_FILE = 'thread.txt';
 
-require_once './Thread.php';
-$thread = new Thread('掲示板App');
-
-function deleteData()
-{
-    file_put_contents(THREAD_FILE, "");
-}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["method"]) && $_POST["method"] === "DELETE") {
-        deleteData();
+        $thread->delete();
     } else {
+        checkToken();
         $thread->post($_POST['personal_name'], $_POST['contents']);
     }
+}
 
+if ($_SERVER["REQUEST_METHOD"] !== "GET") {
     // ブラウザのリロード対策
     $redirect_url = $_SERVER['HTTP_REFERER'];
     header("Location: $redirect_url");
     exit;
 }
 
-echo $thread->getList();
+$list = $thread->getList();
+echo $list;
 
 ?>
 
